@@ -14,7 +14,7 @@ dc = DepthCamera()
 ret, depth_frame, frame, depth_scale = dc.get_frame()
 
 def analisar_imagem(image):
-    modelo = YOLO(r'C:\Users\julia\OneDrive\Projetos\PROJETO_IC_IFES\Versao_2\YOLOv8\weights\best_v2.pt')
+    modelo = YOLO(r'C:\Users\labga\OneDrive\Documentos\PROJETO_IC_IFES_BICO_DE_LANCA\Versao_2\YOLOv8\YOLOv8_versao2\weights\best.pt')
     resultados = modelo.predict(image, conf=0.2)
 
     resultados_array = resultados[0].plot() # imagem plotada com os resultados da detecção
@@ -48,8 +48,8 @@ def extrair_dados(resultados, nome):
         nome_classe = resultados.names[class_id] 
         masks_by_class[nome_classe].append(mask.cpu().numpy())
 
-    bico_masks = masks_by_class['furo']
-    furo_masks = masks_by_class['diametro_externo']
+    bico_masks = masks_by_class['Bico']
+    furo_masks = masks_by_class['Furo']
 
     props_lista = []
     i=-1

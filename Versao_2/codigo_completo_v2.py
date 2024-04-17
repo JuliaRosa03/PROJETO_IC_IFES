@@ -14,8 +14,8 @@ dc = DepthCamera()
 
 num = int(input('Selecione o molde: \n1- Quatro furos \n2- Seis furos \nResposta: '))
 
-diretorio_molde_1 = r'C:\Users\julia\OneDrive\Projetos\PROJETO_IC_IFES\Versao_2\moldes\molde2.png'
-diretorio_molde_2 = r'C:\Users\julia\OneDrive\Projetos\PROJETO_IC_IFES\Versao_2\moldes\molde1.png'
+diretorio_molde_1 = r'C:\Users\labga\OneDrive\Documentos\PROJETO_IC_IFES_BICO_DE_LANCA\Versao_2\moldes\molde2.png'
+diretorio_molde_2 = r'C:\Users\labga\OneDrive\Documentos\PROJETO_IC_IFES_BICO_DE_LANCA\Versao_2\moldes\molde1.png'
 
 if num == 1:
     overlay_image = cv2.imread(diretorio_molde_1, cv2.IMREAD_UNCHANGED)
@@ -55,7 +55,7 @@ while True:
     cv2.putText(back_frame, '{}cm'.format(distancia/10), canto_superior_direito, cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255))
     
     agora = datetime.now()
-    diretorio_destino = r'C:\Users\julia\OneDrive\Projetos\PROJETO_IC_IFES\Versao_2\fotos'
+    diretorio_destino = r'C:\Users\labga\OneDrive\Documentos\PROJETO_IC_IFES_BICO_DE_LANCA\Versao_2\fotos'
     
     # Formatar a data e hora como parte do nome do arquivo
     nome_arquivo = agora.strftime('registro_%d-%m-%Y_%H.%M') + '.png'
@@ -81,7 +81,7 @@ fotografia = cv2.imread(caminho_completo_fotografia)
 
 resultados_masks_BGR, resultados_masks = f.analisar_imagem(fotografia)
 
-diretorio_planilha = r'C:\Users\julia\OneDrive\Projetos\PROJETO_IC_IFES\Versao_2\dados_bicos.xlsx'
+diretorio_planilha = r'C:\Users\labga\OneDrive\Documentos\PROJETO_IC_IFES_BICO_DE_LANCA\Versao_2\dados_bicos.xlsx'
 
 dados_extraidos, caixas_delimitadoras, img_resultados_masks = f.extrair_dados(resultados_masks, nome_arquivo)
 x = f.salvar_dados(dados_extraidos, diretorio_planilha)
@@ -100,7 +100,7 @@ img_masks_BGR_copia = resultados_masks_BGR.copy()
 for i in range(1, len(lista_pontos)):
     imagem_final = cv2.putText(img_masks_BGR_copia, f'{i}', lista_pontos[i], cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-diretorio_guias = r'C:\Users\julia\OneDrive\Projetos\PROJETO_IC_IFES\Versao_2\guias'
+diretorio_guias = r'C:\Users\labga\OneDrive\Documentos\PROJETO_IC_IFES_BICO_DE_LANCA\Versao_2\guias'
 nome_arquivo = agora.strftime('registro_%d-%m-%Y_%H.%M') + '.png'
 caminho = os.path.join(diretorio_guias, nome_arquivo)
 
